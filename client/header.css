@@ -1,0 +1,45 @@
+.topLayer {
+    display: flex ;
+     background-color: #4682B4;
+     align-items: center;
+     border-bottom: solid #21527A 2px;
+     margin-bottom: 10;
+     position: sticky;
+     top: 0;
+}
+
+.boxTop {
+    display: flex;
+    padding: 10px;
+    font-size: 24px;
+    text-decoration: none;
+    color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.boxTop:focus {
+    text-decoration: none;
+}
+
+.boxTop:hover {
+    text-decoration: none;
+    background-color: #4077A5;
+}
+
+.boxTop:active {
+    text-decoration: none;
+
+}
+
+.boxTop:active {
+    color: white;
+    text-decoration: none;
+}
+
+#homepage {
+    font-size: 32px;
+}
+
+.active {
+    color: white;
+}

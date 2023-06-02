@@ -1,0 +1,73 @@
+.page {
+    display: flex;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.townManager {
+    background-color: inherit;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.townManager:hover {
+    background-color: darkgray; 
+}
+
+.sidebar {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+}
+
+.game {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: solid #21527A 2px;
+    background-color: darkgray;
+    margin-left: 5px
+}
+
+.townType {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: relative;
+    left: 100%;
+    top: -27%;
+    max-width:100%; 
+    width: max-content;
+}
+
+.townChoose {
+    margin: 5px;
+    border: 3px solid black;
+    
+}
+
+#buttonCircle {
+    background-color: lightgray;
+}
+
+.townInfo {
+    border: solid #21527A 2px;
+    height: 400px;
+    width: 400px;
+    border-radius: 10%;
+    margin:20px;
+}
+
+#showTown {
+    display: none;
+}
+
+body {
+    margin: 0;
+    
+}
+
+#additionalSideline {
+    display:flex;
+    align-items: flex-end;
+}

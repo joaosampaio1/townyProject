@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='world.css'>
+    <script defer type="text/javascript"  src="header.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='header.css'>
+  </head>
+  <body>
+    <script type="text/javascript" src='game.js'></script>
+    <header class="topLayer" id="topLayer">
+      <a href="/" class="boxTop" id="homepage">Homepage</a>
+      <a href="/world.html" class="boxTop" >World </a>
+      <a class="boxTop">dummy 3</a>
+      <a class="boxTop">dummy 4</a>
+      <a class="boxTop">dummy 5</a>
+      
+  </header>
+
+    <div class="page">
+      <script> 
+      localStorage.setItem("flagInsertTown", false); 
+      localStorage.setItem("flagChangePath", false); 
+      localStorage.setItem("townType", "circle");
+      </script>
+      <div class="game">
+        <h2>World Map</h2>
+        <main class="main">
+          <script src="world.js"></script>
+        </main>
+      </div>
+      
+      <div class="sidebar" id="sidebar">
+        <img class="townManager" id="newTown" title="Add town" src="images/iconAdd96.png" alt="Add town" onclick="addTown()"> 
+        <img class="townManager" id="newPath" title="Change Path" src="images/iconItenerary96.png" alt="Change Path" onclick=addPath()> 
+        <div class="townType" id="townType">
+          <img class="townChoose" id="buttonCircle" src="images/circle64.png" title="Circle Town" onClick="chooseTown(this,'circle')">
+          <img class="townChoose" id="buttonTriangle" src="images/triangle64.png" title="Triangle Town" onclick="chooseTown(this,'triangle')">
+          <img class="townChoose" id="buttonSquare" src="images/square64.png" title="Square Town" onclick="chooseTown(this,'square')">
+      </div>
+      </div>
+      
+      <div id="additionalSideline">
+        <iframe src="townInfo.html" class="townInfo" id="townInfo"></iframe>
+      </div>
+      
+        
+      </iframe>   
+    </div>
+    
+  </body>
+</html>
+
+<script>
+
+  var notSelected = "lightGray"
+  var selected = "darkGray";
+  
+  function addTown() {
+    //localstorage returns string
+    let flagTown = localStorage.getItem("flagInsertTown");
+    let button =  document.getElementById("newTown");
+    let box = document.getElementById("townType");
+    if (flagTown=="false") {
+      allDown();
+      button.style.backgroundColor = selected;
+      localStorage.setItem("flagInsertTown", true);
+      box.style.display = "flex";
+    } else {
+      button.style.backgroundColor = notSelected;
+      localStorage.setItem("flagInsertTown", false);
+      box.style.display = "none";
+    }
+      
+  }
+
+  function addPath() {
+    //localstorage returns string
+    let flagPath = localStorage.getItem("flagChangePath");
+    let button =  document.getElementById("newPath")
+    if (flagPath=="false") {
+      allDown();
+      button.style.backgroundColor = selected;
+      localStorage.setItem("flagChangePath", true);
+    } else {
+      button.style.backgroundColor = notSelected;
+      localStorage.setItem("flagChangePath", false);
+    }
+  }
+    
+  function allDown() {
+    document.getElementById("townType").style.display = "none";
+    localStorage.setItem("flagChangePath", false);
+    let buttons = document.getElementsByClassName("townManager");
+    buttons.forEach(element => {
+      element.style.backgroundColor = notSelected;
+    });
+    localStorage.setItem("flagInsertTown", false);
+    //document.getElementById("newTown").style.backgroundColor = "white";
+   }
+
+   function chooseDown() {
+    let buttons = document.getElementsByClassName("townChoose");
+    buttons.forEach(element => {
+      element.style.backgroundColor = "white";
+    });
+   }
+
+   function chooseTown(button, type) {
+    chooseDown();
+    button.style.backgroundColor = "lightGray";
+    localStorage.setItem("townType", type);
+    //document.getElementById("townType").style.display = "none";
+   }
+
+
+</script>
